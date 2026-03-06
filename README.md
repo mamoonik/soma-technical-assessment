@@ -160,7 +160,7 @@ The scheduler computes:
 
 Install dependencies:
 
-## ```bash
+```bash
 npm install
 
 Run the dev server:
@@ -168,6 +168,7 @@ npm run dev
 
 Open:
 http://localhost:3000
+```
 
 ## DAG Visualization
 
