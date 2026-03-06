@@ -1,3 +1,4 @@
+
 ## Soma Capital Technical Assessment
 
 This is a technical assessment as part of the interview process for Soma Capital.
@@ -53,3 +54,93 @@ Implement a task dependency system that allows tasks to depend on other tasks. T
 3. Submit a link to your repository in the application form.
 
 Thanks for your time and effort. We'll be in touch soon!
+
+## ########################################################
+## SOLUTION - MAMOON I KHALID: ############################
+## Soma Technical Assessment ##############################
+## ########################################################
+This project implements a task planning system that supports dependencies, scheduling, and visualization of dependency graphs.
+
+## Features
+
+- Create and delete tasks
+- Assign task durations
+- Define dependencies between tasks
+- Automatic scheduling calculation
+- Critical Path detection
+- Interactive DAG (Directed Acyclic Graph) visualization
+- Image preview for tasks
+- Responsive UI built with React + Tailwind
+
+---
+
+## Tech Stack
+
+Frontend
+- Next.js
+- React
+- TailwindCSS
+
+Backend
+- Next.js API routes
+- Prisma ORM
+- SQLite database
+
+Visualization
+- React Flow
+- Dagre layout algorithm
+
+---
+
+## Scheduling Logic
+
+Each task includes:
+
+- durationMinutes
+- dependencies
+- earliestStart
+- earliestFinish
+- slackMinutes
+- isCritical
+
+The scheduler computes:
+
+1. Topological ordering of tasks
+2. Forward pass (earliest start/finish)
+3. Backward pass (slack calculation)
+4. Critical path detection
+
+---
+
+## Running the Project
+
+Install dependencies:
+
+## ```bash
+npm install
+
+Run the dev server:
+npm run dev
+
+Open:
+http://localhost:3000
+
+## DAG Visualization
+
+Click "Visualize DAG" to open the dependency graph.
+Red nodes = Critical Path
+Blue node = Selected task
+Edges represent dependency relationships
+
+## Future Improvements
+
+If additional time were available:
+
+- Display reverse dependencies (dependents)
+- Highlight dependency chains in the graph
+- Slack time visualization in the UI
+- Drag-and-drop graph editing
+- Postgres database for production persistence
+
+## Author
+Mamoon Khalid
