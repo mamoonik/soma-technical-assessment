@@ -7,8 +7,33 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+
 model Todo {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   createdAt DateTime  @default(now())
+  //Part 1
+  dueDate   DateTime?
+  //Part 2
+  imageUrl  String?
+
+  // Part 3 - dependency + scheduling
+  durationMinutes Int @default(60)
+
+  // Edges: this todo depends on others
+  dependencies TodoDependency[] @relation("TodoDependsOn")
+  // Reverse edges: others depend on this todo
+  dependents   TodoDependency[] @relation("TodoIsDependencyOf")
+}
+
+model TodoDependency {
+  id           Int  @id @default(autoincrement())
+  todoId       Int
+  dependsOnId  Int
+
+  // edge: todo -> dependsOn
+  todo      Todo @relation("TodoDependsOn", fields: [todoId], references: [id], onDelete: Cascade)
+  dependsOn Todo @relation("TodoIsDependencyOf", fields: [dependsOnId], references: [id], onDelete: Cascade)
+
+  @@unique([todoId, dependsOnId])
 }
