@@ -63,11 +63,48 @@ This project implements a task planning system that supports dependencies, sched
 
 ### Task List UI
 
-![Task List UI](docs/ui-overview.png)
+![Task Planner UI](docs/ui-overview.png)
 
 ### Dependency Graph (DAG Visualization)
 
-![Dependency Graph](docs/dag-visualization.png)
+![Dependency Graph Visualization](docs/dag-visualization.png)
+
+## Architecture
+
+```mermaid
+flowchart LR
+
+User["User Browser"]
+Frontend["Next.js React UI"]
+API["Next.js API Routes"]
+Scheduler["Task Scheduler Engine"]
+Prisma["Prisma ORM"]
+DB["SQLite Database"]
+
+User --> Frontend
+Frontend --> API
+API --> Scheduler
+API --> Prisma
+Prisma --> DB
+```
+
+### Key Components
+
+**Frontend**
+- React + Next.js UI
+- Task management interface
+- DAG visualization using React Flow
+
+**Backend**
+- Next.js API routes
+- Prisma ORM
+- SQLite persistence layer
+
+**Scheduler**
+- Computes earliest start/finish
+- Calculates slack time
+- Determines critical path
+
 ## Features
 
 - Create and delete tasks
