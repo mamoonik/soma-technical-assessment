@@ -156,6 +156,34 @@ The scheduler computes:
 
 ---
 
+## Implementation Overview
+
+The solution extends the provided Next.js application to support due dates, image previews, and task dependencies with scheduling logic.
+
+Key additions include:
+
+- Prisma schema extensions for task dependencies and scheduling fields
+- A scheduling engine that computes earliest start/finish times and identifies the critical path
+- Integration with the Pexels API to dynamically generate task images
+- A DAG visualization built using React Flow and Dagre
+- UI improvements to support dependency selection and task inspection
+
+## Design Decisions
+
+### DAG-based Scheduling
+
+Task dependencies form a Directed Acyclic Graph (DAG).  
+A topological ordering is used to compute earliest start and finish times.
+
+### Critical Path Calculation
+
+A forward pass determines earliest start/finish times, while a backward pass computes slack time and identifies the critical path.
+
+### Graph Visualization
+
+The dependency graph is rendered using React Flow, with Dagre used to compute a readable layout for the DAG.
+
+
 ## Running the Project
 
 Install dependencies:
