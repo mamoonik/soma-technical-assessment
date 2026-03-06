@@ -57,10 +57,17 @@ Thanks for your time and effort. We'll be in touch soon!
 
 ## ########################################################
 ## SOLUTION - MAMOON I KHALID: ############################
-## Soma Technical Assessment ##############################
 ## ########################################################
 This project implements a task planning system that supports dependencies, scheduling, and visualization of dependency graphs.
+## Screenshots
 
+### Task List UI
+
+![Task List UI](docs/ui-overview.png)
+
+### Dependency Graph (DAG Visualization)
+
+![Dependency Graph](docs/dag-visualization.png)
 ## Features
 
 - Create and delete tasks
